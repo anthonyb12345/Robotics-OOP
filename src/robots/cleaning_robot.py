@@ -16,7 +16,7 @@ class CleaningRobot(Robot):
                         status is not one of 'idle', 'working', 'charging', or cleaning_tool is not
                         one of 'vacuum' or 'mop'.
         """
-        super().__init__(name, battery_level, status)
+        Robot.__init__(self,name, battery_level, status)
         if cleaning_tool not in ['vacuum', 'mop']:
             raise ValueError("cleaning tool must be one of: vacuum or mop")
         self.cleaning_tool = cleaning_tool

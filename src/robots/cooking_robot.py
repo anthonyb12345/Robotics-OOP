@@ -1,4 +1,5 @@
 from .base_robot import Robot
+from .cleaning_robot import CleaningRobot
 
 class CookingRobot(Robot):
     def __init__(self, name: str, battery_level: int, status: str, cooking_skill: str) -> None:
@@ -16,7 +17,7 @@ class CookingRobot(Robot):
                         status is not one of 'idle', 'working', 'charging', or cooking_skill is not
                         one of 'beginner', 'intermediate', 'expert'.
         """
-        super().__init__(name, battery_level, status)
+        Robot.__init__(self,name, battery_level, status)
         if cooking_skill not in ['beginner', 'intermediate', 'expert']:
             raise ValueError("cooking skills must be one of: beginner, intermediate, expert")
         self.cooking_skill = cooking_skill
